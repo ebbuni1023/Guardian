@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import argparse
 import os 
+from twilio.rest import Client
 import dlib
 import math
 
@@ -102,3 +103,6 @@ cv2.destroyWindow('face_detect')
 #cv2.imshow('img',img)
 #cv2.waitKey(0)
 #cv2.destroyAllWindows()
+
+# Your Account Sid and Auth Token from twilio.com/console
+# and set the environment variables. See http://twil.io/secure
