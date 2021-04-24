@@ -9,6 +9,9 @@
             type="text/css"
             rel="stylesheet"
             href="{{ url_for('static', filename='style.css') }}">
+            <link type="text/css" rel="stylesheet" href="../static/style.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
         <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
 
@@ -29,17 +32,16 @@
     </head>
 
     <body>
-        <div class="navbar">
-            <ul class="nav">
-                <!-- <h1>{{ title }}</h1> -->
+        <div class="nav-ctn">
+            <ul class="nav-list">
                 <li>
-                    <a href="/">GUARDIAN</a>
+                    <a href="/">Guardian</a>
                 </li>
                 <li>
-                    <a href="/about">about</a>
+                    <a href="/about">About</a>
                 </li>
                 <li>
-                    <a href="/settings">setting</a>
+                    <a href="/settings">Setting</a>
                 </li>
             </ul>
         </div>

@@ -7,30 +7,27 @@
 #2e4450
 
 */
-
-body {
-    background-color: #16c2d5;
+*, html {
+  font-family: 'Raleway', sans-serif;
 }
-ul {
-    text-align: center;
+
+.nav-ctn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list {
+  display: flex;
+  text-align: center;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
 }
-/* 
-li {
-  float: left;
-} */
-
-li a {
-  display: block;
+.nav-list li a {
   color: black;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  padding: 16px 16px;
 }
-
-li a:hover {
-  background-color: #89dee2;
+.nav-list li a:hover {
+  background-color: #10217d;
+  color: white;
 }
