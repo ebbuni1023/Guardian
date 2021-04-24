@@ -12,7 +12,7 @@ right_sound = pyglet.media.load("right.wav", streaming=False)
 
 cap = cv2.VideoCapture(0)
 
-board = np.zeros((300, 1400), np.uint8)
+board = np.zeros((500, 1400), np.uint8)
 board[:] = 255
 
 detector = dlib.get_frontal_face_detector()
@@ -20,7 +20,7 @@ predictor = dlib.shape_predictor("face_eyes.dat")
 
 # Keyboard settings
 keyboard = np.zeros((600, 1000, 3), np.uint8)
-keys_set_1 = {0: "Q", 1: "W", 2: "E", 3: "R", 4: "T",
+keys_set_1 = {0: "water", 1: "food", 2: "call", 3: "sick", 4: "T",
               5: "A", 6: "S", 7: "D", 8: "F", 9: "G",
               10: "Z", 11: "X", 12: "C", 13: "V", 14: "<"}
 keys_set_2 = {0: "Y", 1: "U", 2: "I", 3: "O", 4: "P",
@@ -75,13 +75,13 @@ def draw_letters(letter_index, text, letter_light):
         x = 800
         y = 400
 
-    width = 200
+    width = 400
     height = 200
     th = 3 # thickness
 
     # Text settings
     font_letter = cv2.FONT_HERSHEY_PLAIN
-    font_scale = 10
+    font_scale = 5
     font_th = 4
     text_size = cv2.getTextSize(text, font_letter, font_scale, font_th)[0]
     width_text, height_text = text_size[0], text_size[1]
