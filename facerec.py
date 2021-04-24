@@ -29,7 +29,6 @@ keys_set_2 = {0: "None", 1: "None", 2: "None", 3: "None", 4: "None",
               10: "None", 11: "None", 12: "None", 13: "None", 14: "None"}
 
 def change_settings():
-
 def draw_letters(letter_index, text, letter_light):
     # Keys
     if letter_index == 0:
