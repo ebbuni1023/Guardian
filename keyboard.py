@@ -20,15 +20,12 @@ predictor = dlib.shape_predictor("face_eyes.dat")
 
 # Keyboard settings
 keyboard = np.zeros((600, 1000, 3), np.uint8)
-
-keys_set_1 = {0: "None", 1: "None", 2: "None", 3: "None", 4: "None",
-              5: "None", 6: "None", 7: "None", 8: "None", 9: "None",
-              10: "None", 11: "None", 12: "None", 13: "None", 14: "None"}
-keys_set_2 = {0: "None", 1: "None", 2: "None", 3: "None", 4: "None",
-              5: "None", 6: "None", 7: "None", 8: "None", 9: "None",
-              10: "None", 11: "None", 12: "None", 13: "None", 14: "None"}
-
-def change_settings():
+keys_set_1 = {0: "Q", 1: "W", 2: "E", 3: "R", 4: "T",
+              5: "A", 6: "S", 7: "D", 8: "F", 9: "G",
+              10: "Z", 11: "X", 12: "C", 13: "V", 14: "<"}
+keys_set_2 = {0: "Y", 1: "U", 2: "I", 3: "O", 4: "P",
+              5: "H", 6: "J", 7: "K", 8: "L", 9: "_",
+              10: "V", 11: "B", 12: "N", 13: "M", 14: "<"}
 
 def draw_letters(letter_index, text, letter_light):
     # Keys

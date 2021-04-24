@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+import facerec
+
 
 app = Flask(__name__)
 
@@ -13,6 +15,10 @@ def docs():
 @app.route("/about")
 def about():
     return render_template("page.html", title="about page")
+
+@app.route("/settings")
+def setting(): 
+    return render_template("page.html", title="settings")
 
 if __name__ == "__main__":
     app.run(debug=True)
