@@ -1,0 +1,33 @@
+/*
+#16c2d5
+#89dee2
+#10217d
+#527c88
+#d7baad
+#2e4450
+
+*/
+*, html {
+  font-family: 'Raleway', sans-serif;
+}
+
+.nav-ctn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list {
+  display: flex;
+  text-align: center;
+  list-style-type: none;
+}
+.nav-list li a {
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding: 16px 16px;
+}
+.nav-list li a:hover {
+  background-color: #10217d;
+  color: white;
+}
