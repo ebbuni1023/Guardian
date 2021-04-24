@@ -8,9 +8,9 @@ app = Flask(__name__)
 def homepage():
     return render_template("index.html", title="GUARDIAN")
 
-@app.route("/docs")
-def docs():
-    return render_template("page.html", title="docs page")
+# @app.route("/docs")
+# def docs():
+#     return render_template("page.html", title="docs page")
 
 @app.route("/about")
 def about():
