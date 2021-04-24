@@ -5,7 +5,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
-
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
@@ -22,14 +22,25 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
+    
 </head>
 
 <body>
-    <h1>{{ title }}</h1>
-    <p><a href="/docs">Docs</a></p>
-    <p><a href="/about">About</a></p>
-    <p><a href="/settings">Settings</a></p>
-    <p><a href="/">Home</a></p>
+    <div class = "navbar">
+        <h1>{{ title }}</h1>
+        <ul class = nav>
+            <li><a href = "/docs">Docs</a></li>
+            <li><a href = "/about">about</a></li>
+            <li><a href = "/settings">setting</a></li>
+
+        </ul>
+        <!-- <p><a href="/docs">Docs</a></p>
+        <p><a href="/about">About</a></p>
+        <p><a href="/settings">Settings</a></p>
+        <p><a href="/">Home</a></p> -->
+    </div>
+
+    
 </body>
 
 </html>
