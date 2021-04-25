@@ -7,8 +7,8 @@ import time
 
 # Load sounds
 sound = pyglet.media.load("sound.wav", streaming=False)
-left_sound = pyglet.media.load("left.wav", streaming=False)
-right_sound = pyglet.media.load("right.wav", streaming=False)
+left_sound = pyglet.media.load("nurse.wav", streaming=False)
+right_sound = pyglet.media.load("family.wav", streaming=False)
 
 cap = cv2.VideoCapture(0)
 
@@ -19,13 +19,13 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("face_eyes.dat")
 
 # Keyboard settings
-keyboard = np.zeros((600, 1000, 3), np.uint8)
-keys_set_1 = {0: "water", 1: "food", 2: "call", 3: "sick", 4: "T",
-              5: "A", 6: "S", 7: "D", 8: "F", 9: "G",
-              10: "Z", 11: "X", 12: "C", 13: "V", 14: "<"}
-keys_set_2 = {0: "Y", 1: "U", 2: "I", 3: "O", 4: "P",
-              5: "H", 6: "J", 7: "K", 8: "L", 9: "_",
-              10: "V", 11: "B", 12: "N", 13: "M", 14: "<"}
+keyboard = np.zeros((800, 2000, 3), np.uint8)
+keys_set_1 = {0: "Dizzy", 1: "COLD", 2: "MOISTURE", 3: "TEMPRATURE", 4: "BURN",
+              5: "Dizzy", 6: "Dizzy", 7: "Dizzy", 8: "Dizzy", 9: "Dizzy",
+              10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
+keys_set_2 = {0: "Dizzy", 1: "COLD", 2: "MOISTURE", 3: "TEMPRATURE", 4: "BURN",
+              5: "Dizzy", 6: "Dizzy", 7: "Dizzy", 8: "Dizzy", 9: "Dizzy",
+              10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
 
 def draw_letters(letter_index, text, letter_light):
     # Keys
@@ -33,46 +33,46 @@ def draw_letters(letter_index, text, letter_light):
         x = 0
         y = 0
     elif letter_index == 1:
-        x = 200
-        y = 0
-    elif letter_index == 2:
         x = 400
         y = 0
+    elif letter_index == 2:
+        x = 800
+        y = 0
     elif letter_index == 3:
-        x = 600
+        x = 1200
         y = 0
     elif letter_index == 4:
-        x = 800
+        x = 1600
         y = 0
     elif letter_index == 5:
         x = 0
         y = 200
     elif letter_index == 6:
-        x = 200
-        y = 200
-    elif letter_index == 7:
         x = 400
         y = 200
+    elif letter_index == 7:
+        x = 800
+        y = 200
     elif letter_index == 8:
-        x = 600
+        x = 1200
         y = 200
     elif letter_index == 9:
-        x = 800
+        x = 1600
         y = 200
     elif letter_index == 10:
         x = 0
         y = 400
     elif letter_index == 11:
-        x = 200
-        y = 400
-    elif letter_index == 12:
         x = 400
         y = 400
+    elif letter_index == 12:
+        x = 800
+        y = 400
     elif letter_index == 13:
-        x = 600
+        x = 1200
         y = 400
     elif letter_index == 14:
-        x = 800
+        x = 1600
         y = 400
 
     width = 400
@@ -81,7 +81,7 @@ def draw_letters(letter_index, text, letter_light):
 
     # Text settings
     font_letter = cv2.FONT_HERSHEY_PLAIN
-    font_scale = 5
+    font_scale = 3
     font_th = 4
     text_size = cv2.getTextSize(text, font_letter, font_scale, font_th)[0]
     width_text, height_text = text_size[0], text_size[1]
@@ -100,8 +100,8 @@ def draw_menu():
     th_lines = 4 # thickness lines
     cv2.line(keyboard, (int(cols/2) - int(th_lines/2), 0),(int(cols/2) - int(th_lines/2), rows),
              (51, 51, 51), th_lines)
-    cv2.putText(keyboard, "LEFT", (80, 300), font, 6, (255, 255, 255), 5)
-    cv2.putText(keyboard, "RIGHT", (80 + int(cols/2), 300), font, 6, (255, 255, 255), 5)
+    cv2.putText(keyboard, "NURSE", (80, 400), font, 6, (300, 255, 255), 5)
+    cv2.putText(keyboard, "FAMILY", (80 + int(cols/2), 400), font, 6, (255, 255, 255), 5)
 
 def midpoint(p1 ,p2):
     return int((p1.x + p2.x)/2), int((p1.y + p2.y)/2)
@@ -184,8 +184,8 @@ frames_active_letter = 9
 
 # Text and keyboard settings
 text = ""
-keyboard_selected = "left"
-last_keyboard_selected = "left"
+keyboard_selected = "nurse"
+last_keyboard_selected = "nurse"
 select_keyboard_menu = True
 keyboard_selection_frames = 0
 
@@ -204,7 +204,7 @@ while True:
         draw_menu()
 
     # Keyboard selected
-    if keyboard_selected == "left":
+    if keyboard_selected == "nurse":
         keys_set = keys_set_1
     else:
         keys_set = keys_set_2
@@ -234,7 +234,7 @@ while True:
             gaze_ratio = (gaze_ratio_right_eye + gaze_ratio_left_eye) / 2
 
             if gaze_ratio <= 0.9:
-                keyboard_selected = "right"
+                keyboard_selected = "family"
                 keyboard_selection_frames += 1
                 # If Kept gaze on one side more than 15 frames, move to keyboard
                 if keyboard_selection_frames == 15:
@@ -247,7 +247,7 @@ while True:
                     last_keyboard_selected = keyboard_selected
                     keyboard_selection_frames = 0
             else:
-                keyboard_selected = "left"
+                keyboard_selected = "nurse"
                 keyboard_selection_frames += 1
                 # If Kept gaze on one side more than 15 frames, move to keyboard
                 if keyboard_selection_frames == 15:
