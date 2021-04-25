@@ -4,86 +4,97 @@ import dlib
 from math import hypot
 import pyglet
 import time
+import json
 
 # Load sounds
 sound = pyglet.media.load("sound.wav", streaming=False)
-left_sound = pyglet.media.load("left.wav", streaming=False)
-right_sound = pyglet.media.load("right.wav", streaming=False)
+left_sound = pyglet.media.load("nurse.wav", streaming=False)
+right_sound = pyglet.media.load("family.wav", streaming=False)
 
 cap = cv2.VideoCapture(0)
 
-board = np.zeros((300, 1400), np.uint8)
+board = np.zeros((500, 1400), np.uint8)
 board[:] = 255
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("face_eyes.dat")
 
 # Keyboard settings
-keyboard = np.zeros((600, 1000, 3), np.uint8)
+keyboard = np.zeros((800, 2000, 3), np.uint8)
 
-keys_set_1 = {0: "None", 1: "None", 2: "None", 3: "None", 4: "None",
-              5: "None", 6: "None", 7: "None", 8: "None", 9: "None",
-              10: "None", 11: "None", 12: "None", 13: "None", 14: "None"}
-keys_set_2 = {0: "None", 1: "None", 2: "None", 3: "None", 4: "None",
-              5: "None", 6: "None", 7: "None", 8: "None", 9: "None",
-              10: "None", 11: "None", 12: "None", 13: "None", 14: "None"}
+# keys_set_1 = {0: "Dizzy", 1: "COLD", 2: "MOISTURE", 3: "TEMPRATURE", 4: "BURN",
+#               5: "Dizzy", 6: "Dizzy", 7: "Dizzy", 8: "Dizzy", 9: "Dizzy",
+#               10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
 
-def change_settings():
+# keys_set_2 = {0: "Dizzy", 1: "COLD", 2: "MOISTURE", 3: "TEMPRATURE", 4: "BURN",
+#                5: "Dizzy", 6: "Dizzy", 7: "Dizzy", 8: "Dizzy", 9: "Dizzy",
+#                10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
+
+def key_set_1(): 
+    with open("keyset.json") as get: 
+        f = json.load(get)
+        return f 
+
+def key_set_2(): 
+    with open("keyset.json") as getNurse: 
+        getNurse = json.load(getNurse)
+        return getNurse
+
 def draw_letters(letter_index, text, letter_light):
     # Keys
     if letter_index == 0:
         x = 0
         y = 0
     elif letter_index == 1:
-        x = 200
-        y = 0
-    elif letter_index == 2:
         x = 400
         y = 0
+    elif letter_index == 2:
+        x = 800
+        y = 0
     elif letter_index == 3:
-        x = 600
+        x = 1200
         y = 0
     elif letter_index == 4:
-        x = 800
+        x = 1600
         y = 0
     elif letter_index == 5:
         x = 0
         y = 200
     elif letter_index == 6:
-        x = 200
-        y = 200
-    elif letter_index == 7:
         x = 400
         y = 200
+    elif letter_index == 7:
+        x = 800
+        y = 200
     elif letter_index == 8:
-        x = 600
+        x = 1200
         y = 200
     elif letter_index == 9:
-        x = 800
+        x = 1600
         y = 200
     elif letter_index == 10:
         x = 0
         y = 400
     elif letter_index == 11:
-        x = 200
-        y = 400
-    elif letter_index == 12:
         x = 400
         y = 400
-    elif letter_index == 13:
-        x = 600
-        y = 400
-    elif letter_index == 14:
+    elif letter_index == 12:
         x = 800
         y = 400
+    elif letter_index == 13:
+        x = 1200
+        y = 400
+    elif letter_index == 14:
+        x = 1600
+        y = 400
 
-    width = 200
+    width = 400
     height = 200
     th = 3 # thickness
 
     # Text settings
     font_letter = cv2.FONT_HERSHEY_PLAIN
-    font_scale = 10
+    font_scale = 3
     font_th = 4
     text_size = cv2.getTextSize(text, font_letter, font_scale, font_th)[0]
     width_text, height_text = text_size[0], text_size[1]
@@ -102,8 +113,8 @@ def draw_menu():
     th_lines = 4 # thickness lines
     cv2.line(keyboard, (int(cols/2) - int(th_lines/2), 0),(int(cols/2) - int(th_lines/2), rows),
              (51, 51, 51), th_lines)
-    cv2.putText(keyboard, "LEFT", (80, 300), font, 6, (255, 255, 255), 5)
-    cv2.putText(keyboard, "RIGHT", (80 + int(cols/2), 300), font, 6, (255, 255, 255), 5)
+    cv2.putText(keyboard, "NURSE", (80, 400), font, 6, (300, 255, 255), 5)
+    cv2.putText(keyboard, "FAMILY", (80 + int(cols/2), 400), font, 6, (255, 255, 255), 5)
 
 def midpoint(p1 ,p2):
     return int((p1.x + p2.x)/2), int((p1.y + p2.y)/2)
@@ -207,10 +218,11 @@ while True:
 
     # Keyboard selected
     if keyboard_selected == "left":
-        keys_set = keys_set_1
+        keys_set = key_set_1()
     else:
-        keys_set = keys_set_2
-    active_letter = keys_set[letter_index]
+        keys_set = key_set_2()
+
+    active_letter = keys_set[str(letter_index)]
 
     # Face detection
     faces = detector(gray)
@@ -298,7 +310,7 @@ while True:
                 light = True
             else:
                 light = False
-            draw_letters(i, keys_set[i], light)
+            draw_letters(i, keys_set[str(i)], light)
 
     # Show the text we're writing on the board
     cv2.putText(board, text, (80, 100), font, 9, 0, 3)
