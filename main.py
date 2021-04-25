@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, request, redirect
 # import facerec
+import keyboard_settings
 
 
 app = Flask(__name__)
@@ -8,16 +9,25 @@ app = Flask(__name__)
 def homepage():
     return render_template("index.html", title="GUARDIAN")
 
-# @app.route("/docs")
-# def docs():
-#     return render_template("page.html", title="docs page")
+#@app.route("/docs/<lol>")
+# def docs(lol):
+    
 
 @app.route("/about")
 def about():
     return render_template("page.html", title="about page")
 
-@app.route("/settings")
-def setting(): 
+@app.route("/nurse")
+def nurse():
+    return render_template("nurse.html", title="about page")
+
+@app.route("/settings", methods=["POST", "GET"])
+def family():
+    if request.method == "POST": 
+        # stuff = request.form['Field1_name']
+        print(request.get_data())
+        stuff = request.get_data()
+        keyboard_settings.rewrite(stuff)
     return render_template("settings.html", title="settings")
 
 if __name__ == "__main__":

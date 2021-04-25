@@ -10,73 +10,78 @@
 
 *,
 html {
-  font-family: "Raleway", sans-serif;
+    font-family: "Raleway", sans-serif;
+    color: #052049;
+
 }
 
 .nav-ctn {
-  text-decoration: none;
-  display: flex;
-  justify-content: space-between;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .nav-list-name {
+    margin-top: 30px;
     margin-left: 4%;
-  display: flex;
-  text-align: center;
-  list-style-type: none;
+    display: flex;
+    text-align: center;
+    list-style-type: none;
 }
 
-.nav-list-name a{
-    color: black;
+.nav-list-name a {
     text-align: center;
     text-decoration: none;
-    padding: 16px 16px;
+    padding: 16px;
     font-size: 2em;
-  }
+}
 
 .nav-list {
+    margin-top: 30px;
+
     display: flex;
     text-align: center;
     list-style-type: none;
     margin-right: 5%;
-  }
+}
 .nav-list li a {
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  padding: 16px 16px;
+    text-align: center;
+    text-decoration: none;
+    padding: 16px;
 }
 .nav-list li a:hover {
-  background-color: #10217d;
-  color: white;
+    background-color: #10217d;
+    color: rgb(182, 173, 173);
 }
 
 .box {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 1rem;
-  background-color: #527c88;
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem;
+    background-color: #527c88;
+    gap: 1rem;
 }
 
 .box-edit {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 1rem;
-  font-size: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    font-size: 30px;
 }
 .box-edit form {
-  text-align: center;
-  place-self: center;
-  grid-column: 2;
+    text-align: center;
+    place-self: center;
+    grid-column: 2;
 }
 form button {
-  padding: 0.2rem;
-  text-decoration: none;
-  border: none;
-  font-size: 18px;
-  border-radius: 0.5rem;
-  background-color: #10217d;
-  color: white;
+    padding: 0.2rem;
+    text-decoration: none;
+    border: none;
+    font-size: 18px;
+    border-radius: 0.5rem;
+    background-color: #10217d;
+    color: white;
 }

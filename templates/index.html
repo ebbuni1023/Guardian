@@ -31,20 +31,48 @@
             firebase.initializeApp(firebaseConfig);
         </script>
     <style>
-        /* .download{
-            width:50%;
-            height:30%;
-            float: left;
-            text-align: center;
-        } */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #052049, #506380, #9BA6B6, #E6E9ED, white);
+            background-size: 400% 400%;
+            position: relative;
+            animation: change 10s ease-in-out infinite;
+        }
+        @keyframes change{
+            0%{
+                background-position: 0 50%;
+            }
+            50%{
+                background-position: 100% 50%;
+            }
+            100%{
+                background-position: 0 50%;
+            }
+        }
+
         .run{
             width:100%;
             height:30%;
             /* float: right; */
-            text-align: center;            
+            text-align: center; 
+            margin-top: 50px;
         }
+
         .header{
             text-align: center;
+        }
+        
+        .container{
+            font-weight: bold;
+            margin-top: 30px;
+            color: #052049;
+            background: 2px 2px 4px #000000;
         }
     </style>
     </head>
@@ -53,7 +81,7 @@
         <div class="nav-ctn">
             <ul class ="nav-list-name">
                 <li>
-                    <a href="/">GUARDIAN</a>
+                    <a href="/"> GUARDIAN </a>
                 </li>
             </ul>
 
@@ -62,7 +90,10 @@
                     <a href="/about">About</a>
                 </li>
                 <li>
-                    <a href="/settings">Setting</a>
+                    <a href="/nurse">Nurse Setting</a>
+                </li>
+                <li>
+                    <a href="/family">Family setting</a>
                 </li>
             </ul>
         </div>
