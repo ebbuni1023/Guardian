@@ -18,13 +18,13 @@ def homepage():
 def about():
     return render_template("about.html", title="about page")
 
-@app.route("/nurse")
+@app.route("/nurse", methods=["POST", "GET"])
 def nurse():
     if request.method == "POST":
         print(request.get_data)
         stuff = request.get_data()
         keyboard_settings_nur.rewrite(stuff)
-    return render_template("nurse.html", title="about page")
+    return render_template("nurse.html", title="nurse")
 
 @app.route("/settings", methods=["POST", "GET"])
 def family():
