@@ -17,8 +17,12 @@ def homepage():
 def about():
     return render_template("page.html", title="about page")
 
+@app.route("/nurse")
+def nurse():
+    return render_template("nurse.html", title="about page")
+
 @app.route("/settings", methods=["POST", "GET"])
-def setting():
+def family():
     if request.method == "POST": 
         # stuff = request.form['Field1_name']
         print(request.get_data())
