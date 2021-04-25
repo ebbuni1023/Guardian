@@ -1,4 +1,11 @@
-.rectangle { 
-    
-
-}
+.box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px 2em;
+    background-color: blue;
+    align-self: center; 
+  }
+  
+  .box :first-child {
+      align-self: center;
+  }
