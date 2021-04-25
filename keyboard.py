@@ -184,8 +184,8 @@ frames_active_letter = 9
 
 # Text and keyboard settings
 text = ""
-keyboard_selected = "left"
-last_keyboard_selected = "left"
+keyboard_selected = "nurse"
+last_keyboard_selected = "nurse"
 select_keyboard_menu = True
 keyboard_selection_frames = 0
 
@@ -204,7 +204,7 @@ while True:
         draw_menu()
 
     # Keyboard selected
-    if keyboard_selected == "left":
+    if keyboard_selected == "nurse":
         keys_set = keys_set_1
     else:
         keys_set = keys_set_2
@@ -234,7 +234,7 @@ while True:
             gaze_ratio = (gaze_ratio_right_eye + gaze_ratio_left_eye) / 2
 
             if gaze_ratio <= 0.9:
-                keyboard_selected = "right"
+                keyboard_selected = "family"
                 keyboard_selection_frames += 1
                 # If Kept gaze on one side more than 15 frames, move to keyboard
                 if keyboard_selection_frames == 15:
@@ -247,7 +247,7 @@ while True:
                     last_keyboard_selected = keyboard_selected
                     keyboard_selection_frames = 0
             else:
-                keyboard_selected = "left"
+                keyboard_selected = "nurse"
                 keyboard_selection_frames += 1
                 # If Kept gaze on one side more than 15 frames, move to keyboard
                 if keyboard_selection_frames == 15:
