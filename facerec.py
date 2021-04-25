@@ -22,13 +22,6 @@ predictor = dlib.shape_predictor("face_eyes.dat")
 # Keyboard settings
 keyboard = np.zeros((800, 2000, 3), np.uint8)
 
-# keys_set_1 = {0: "Dizzy", 1: "COLD", 2: "MOISTURE", 3: "TEMPRATURE", 4: "BURN",
-#               5: "Dizzy", 6: "Dizzy", 7: "Dizzy", 8: "Dizzy", 9: "Dizzy",
-#               10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
-
-# keys_set_2 = {0: "Dizzy", 1: "COLD", 2: "MOISTURE", 3: "TEMPRATURE", 4: "BURN",
-#                5: "Dizzy", 6: "Dizzy", 7: "Dizzy", 8: "Dizzy", 9: "Dizzy",
-#                10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
 
 def key_set_1(): 
     with open("keyset_fam.json") as get: 
@@ -331,3 +324,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+

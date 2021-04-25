@@ -128,12 +128,12 @@ def rewrite(write):
         open_json(num14, info[1])
 
 def open_json(number, data):
-    with open("keyset.json", "r") as x: 
+    with open("keyset_nur.json", "r") as x: 
         something = json.load(x)
         print(data)
         print(number)
 
         something[str(number)] = str(data)
     
-    with open ("keyset.json", "w") as x: 
+    with open ("keyset_nur.json", "w") as x: 
         json.dump(something, x, indent=2)
