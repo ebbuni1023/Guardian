@@ -1,4 +1,3 @@
-import numpy
 import json
 
 # num = []
@@ -7,9 +6,6 @@ import json
 #              5: "Dizzy", 6: "Dizzy", 7: "Dizzy", 8: "Dizzy", 9: "Dizzy",
 # 
 #               10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
-keys_set_2 = {0: "Dizzy", 1: "COLD", 2: "MOISTURE", 3: "TEMPRATURE", 4: "BURN",
-              5: "Dizzy", 6: "Dizzy", 7: "Dizzy", 8: "Dizzy", 9: "Dizzy",
-              10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
 
 
 def rewrite(write): 
