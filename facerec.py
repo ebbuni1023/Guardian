@@ -31,12 +31,12 @@ keyboard = np.zeros((800, 2000, 3), np.uint8)
 #                10: "Dizzy", 11: "Dizzy", 12: "Dizzy", 13: "Dizzy", 14: "Dizzy"}
 
 def key_set_1(): 
-    with open("keyset.json") as get: 
+    with open("keyset_fam.json") as get: 
         f = json.load(get)
         return f 
 
 def key_set_2(): 
-    with open("keyset.json") as getNurse: 
+    with open("keyset_nur.json") as getNurse: 
         getNurse = json.load(getNurse)
         return getNurse
 
