@@ -6,12 +6,12 @@ import pyglet
 import time
 import json
 import tkinter as tk
-import PyPDF2
-from PIL import Imgage, ImageTk
+# import PyPDF2
+# from PIL import Imgage, ImageTk
 
-root = tk.Tk()
+# root = tk.Tk()
 
-root.mainloop()
+# root.mainloop()
 
 # Load sounds
 sound = pyglet.media.load("sound.wav", streaming=False)
