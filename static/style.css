@@ -16,6 +16,7 @@ html {
 }
 
 .nav-ctn {
+    margin-top: 30px;
     font-weight: bold;
     text-decoration: none;
     display: flex;
@@ -24,7 +25,6 @@ html {
 }
 
 .nav-list-name {
-    margin-top: 37px;
     margin-left: 4%;
     /* display: i; */
     float: left;
@@ -40,12 +40,14 @@ html {
 }
 
 .nav-list {
-    margin-top: 40px;
-    display: inline;
+    margin-top: 5px;
     float: right;
     text-align: center;
     list-style-type: none;
     margin-right: 5%;
+}
+li {
+    display: inline;
 }
 .nav-list li a {
     text-align: center;
