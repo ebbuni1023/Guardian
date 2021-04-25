@@ -14,7 +14,7 @@ def rewrite(write):
     print(info)
 
     if info[0] == "Field0_name": 
-        num = ''
+        num0 = ''
         # num = info[0].isdigit()
         for letter in info[0]: 
             if letter.isdigit(): 
@@ -23,7 +23,7 @@ def rewrite(write):
         open_json(num, info[1])
 
     elif info[0] == "Field1_name": 
-        num = ''
+        num1 = ''
         # num = info[0].isdigit()
         for letter in info[0]: 
             if letter.isdigit(): 
