@@ -12,24 +12,24 @@ def rewrite(write):
     write = write.decode()
     info = write.split("=")
     print(info)
-    
+
     if info[0] == "Field0_name": 
-        num = ''
+        num0 = ''
         # num = info[0].isdigit()
         for letter in info[0]: 
             if letter.isdigit(): 
-                num += letter
+                num0 += letter
 
-        open_json(num, info[1])
+        open_json(num0, info[1])
 
     elif info[0] == "Field1_name": 
-        num = ''
+        num1 = ''
         # num = info[0].isdigit()
         for letter in info[0]: 
             if letter.isdigit(): 
-                num += letter
+                num1 += letter
 
-        open_json(num, info[1])
+        open_json(num1, info[1])
     
     elif info[0] == "Field2_name":
         num2 = '' 
