@@ -2,7 +2,6 @@ from flask import Flask, render_template, url_for, request, redirect
 # import facerec
 import keyboard_settings_fam
 import keyboard_settings_nur
-import facerec
 
 
 app = Flask(__name__)
@@ -35,6 +34,7 @@ def family():
         stuff = request.get_data()
         keyboard_settings_fam.rewrite(stuff)
     return render_template("settings.html", title="settings")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

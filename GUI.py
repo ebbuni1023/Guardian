@@ -2,7 +2,8 @@ import sys
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QLabel, QGridLayout, QWidget
 from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtCore import QSize    
+from PyQt5.QtCore import QSize
+import subprocess
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -17,7 +18,7 @@ class MainWindow(QMainWindow):
         pybutton.move(50, 50)        
 
     def clickMethod(self):
-        print('Clicked Pyqt button.')
+        subprocess.call('facerec.py', shell=True)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
