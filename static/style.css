@@ -8,8 +8,9 @@
 
 */
 
-*, html {
-  font-family: 'Raleway', sans-serif;
+*,
+html {
+  font-family: "Raleway", sans-serif;
 }
 
 .nav-ctn {
@@ -35,15 +36,30 @@
 
 .box {
   display: grid;
-  grid-template-columns: 1fr, 1fr;
-  padding: 10px; 
-  background-color:lightblue; 
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem;
+  background-color: #527c88;
+  gap: 1rem;
 }
 
 .box-edit {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  padding: 1rem;
   font-size: 30px;
+}
+.box-edit form {
   text-align: center;
+  place-self: center;
+  grid-column: 2;
+}
+form button {
+  padding: 0.2rem;
+  text-decoration: none;
+  border: none;
+  font-size: 18px;
+  border-radius: 0.5rem;
+  background-color: #10217d;
+  color: white;
 }
