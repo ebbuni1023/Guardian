@@ -1,42 +1,38 @@
 <html>
 
-    <head>
-        <title>Sample app</title>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
-        <link
-            type="text/css"
-            rel="stylesheet"
-            href="{{ url_for('static', filename='style.css') }}">
-        <link type="text/css" rel="stylesheet" href="../static/style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
-            rel="stylesheet">
-        <!-- TODO: Add SDKs for Firebase products that you want to use
+<head>
+    <title>GUARDIAN</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link type="text/css" rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
 
-        <script>
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyAJclASRgCTLhf1dZ9pMvGROdioL8Nupx8",
-                authDomain: "guardian-bf6a1.firebaseapp.com",
-                projectId: "guardian-bf6a1",
-                storageBucket: "guardian-bf6a1.appspot.com",
-                messagingSenderId: "891014160494",
-                appId: "1:891014160494:web:12c3cb1248ebec3d8d867f"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-        </script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAJclASRgCTLhf1dZ9pMvGROdioL8Nupx8",
+            authDomain: "guardian-bf6a1.firebaseapp.com",
+            projectId: "guardian-bf6a1",
+            storageBucket: "guardian-bf6a1.appspot.com",
+            messagingSenderId: "891014160494",
+            appId: "1:891014160494:web:12c3cb1248ebec3d8d867f"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
+        
+        body {
             width: 100%;
             height: 100%;
             background: linear-gradient(-45deg, #052049, #506380, #9BA6B6, #E6E9ED, white);
@@ -44,58 +40,195 @@
             position: relative;
             animation: change 10s ease-in-out infinite;
         }
-        @keyframes change{
-            0%{
+        
+        @keyframes change {
+            0% {
                 background-position: 0 50%;
             }
-            50%{
+            50% {
                 background-position: 100% 50%;
             }
-            100%{
+            100% {
                 background-position: 0 50%;
             }
         }
-
-        .run{
-            width:100%;
-            height:30%;
+        
+        .run {
+            width: 100%;
+            height: 30%;
             /* float: right; */
-            text-align: center; 
+            text-align: center;
             margin-top: 50px;
         }
-
-        .header{
+        
+        .header {
             text-align: center;
         }
         
-        .container{
+        .container {
             font-weight: bold;
             margin-top: 30px;
             color: #052049;
             background: 2px 2px 4px #000000;
         }
+        
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+        
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
+        
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #474e5d;
+            color: white;
+        }
+        
+        .container {
+            padding: 0 16px;
+        }
+        
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .title {
+            color: grey;
+        }
+        
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .button:hover {
+            background-color: #555;
+        }
+        
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
     </style>
-    </head>
+</head>
 
-    <body>
-        <div class="nav-ctn">
-            <ul class ="nav-list-name">
-                <li>
-                    <a href="/"> GUARDIAN </a>
-                </li>
-            </ul>
+<body>
+    <div class="nav-ctn">
+        <ul class="nav-list-name">
+            <li>
+                <a href="/"> GUARDIAN </a>
+            </li>
+        </ul>
 
-            <ul class="nav-list">
-                <li>
-                    <a href="/about">About</a>
-                </li>
-                <li>
-                    <a href="/nurse">Nurse Setting</a>
-                </li>
-                <li>
-                    <a href="/settings">Family setting</a>
-                </li>
-            </ul>
+        <ul class="nav-list">
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/nurse">Nurse Setting</a>
+            </li>
+            <li>
+                <a href="/family">Family setting</a>
+            </li>
+        </ul>
+    </div>
+    <div class="about-section">
+        <h1>Inspiration</h1>
+        <p>Some text about who we are and what we do.</p>
+        <h1>What it does</h1>
+        <p>Resize the browser window to see that this page is responsive by the way.</p>
+        <h1>How we built it</h1>
+        <p>Some text about who we are and what we do.</p>
+        <h1>Challenges we ran into</h1>
+        <p>Some text about who we are and what we do.</p>
+        <h1>Accomplishments that we're proud of</h1>
+        <p>Some text about who we are and what we do.</p>
+        <h1>What we learned</h1>
+        <p>Some text about who we are and what we do.</p>
+        <h1>What's next for Guardian</h1>
+        <p>Some text about who we are and what we do.</p>
+
+    </div>
+
+    <h2 style="text-align:center">Our Team</h2>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="/static/35.jpg">
+                <div class="container">
+                    <h2>Jiyoung Yoon</h2>
+                    <p class="title">Back-end developer</p>
+                    <p>Some text that describes me.Some text that describes me.Some text that describes me.</p>
+                    <p>jiyoung@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
         </div>
-    </body>
+
+        <div class="column">
+            <div class="card">
+                <img src="/static/34.jpg">
+                <div class="container">
+                    <h2>Bryan Chau</h2>
+                    <p class="title">Front-end developer</p>
+                    <p>Some text that describes me. Some text that describes me.Some text that describes me.</p>
+                    <p>bryan@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="/static/35.jpg">
+                <div class="container">
+                    <h2>Naama Paulemont</h2>
+                    <p class="title">Back-end developer</p>
+                    <p>Some text that describes me. Some text that describes me. Some text that describes me.</p>
+                    <p>naama@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="/static/35.jpg">
+                <div class="container">
+                    <h2>Joann</h2>
+                    <p class="title">Back-end developer</p>
+                    <p>Some text that describes me.Some text that describes me.Some text that describes me.</p>
+                    <p>joann@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>
