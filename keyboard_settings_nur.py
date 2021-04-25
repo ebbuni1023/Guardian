@@ -12,14 +12,24 @@ def rewrite(write):
     write = write.decode()
     info = write.split("=")
     print(info)
-    if info[0] == "Field1_name": 
-        num = ''
+
+    if info[0] == "Field0_name": 
+        num0 = ''
         # num = info[0].isdigit()
         for letter in info[0]: 
             if letter.isdigit(): 
-                num += letter
+                num0 += letter
 
-        open_json(num, info[1])
+        open_json(num0, info[1])
+
+    elif info[0] == "Field1_name": 
+        num1 = ''
+        # num = info[0].isdigit()
+        for letter in info[0]: 
+            if letter.isdigit(): 
+                num1 += letter
+
+        open_json(num1, info[1])
     
     elif info[0] == "Field2_name":
         num2 = '' 
@@ -109,18 +119,17 @@ def rewrite(write):
                 num12 += letter
         open_json(num12, info[1])
     
-    elif info[0] == "Field13 _name":
+    elif info[0] == "Field13_name":
         num13 = '' 
         # num = info[0].isdigit()
         for letter in info[0]: 
             print(letter)
-            if letter.isdigit():
-                print("Here" + letter) 
+            if letter.isdigit(): 
                 num13 += letter
         open_json(num13, info[1])
 
     elif info[0] == "Field14_name":
-        num13 = '' 
+        num14 = '' 
         # num = info[0].isdigit()
         for letter in info[0]: 
             if letter.isdigit(): 
@@ -128,12 +137,12 @@ def rewrite(write):
         open_json(num14, info[1])
 
 def open_json(number, data):
-    with open("keyset.json", "r") as x: 
-        something = json.load(x)
+    with open("keyset_nur.json", "r") as f: 
+        something = json.load(f)
         print(data)
         print(number)
 
         something[str(number)] = str(data)
     
-    with open ("keyset.json", "w") as x: 
-        json.dump(something, x, indent=2)
+    with open ("keyset_nur.json", "w") as f: 
+        json.dump(something, f, indent=2)
