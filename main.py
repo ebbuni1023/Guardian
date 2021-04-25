@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 # import facerec
-import keyboard_settings
+import keyboard_settings_fam
+import keyboard_settings_nur
 
 
 app = Flask(__name__)
@@ -15,10 +16,14 @@ def homepage():
 
 @app.route("/about")
 def about():
-    return render_template("page.html", title="about page")
+    return render_template("about.html", title="about page")
 
 @app.route("/nurse")
 def nurse():
+    if request.method == "POST":
+        print(request.get_data)
+        stuff = request.get_data()
+        keyboard_settings.rewrite(stuff)
     return render_template("nurse.html", title="about page")
 
 @app.route("/settings", methods=["POST", "GET"])

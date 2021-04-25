@@ -24,9 +24,10 @@ html {
 }
 
 .nav-list-name {
-    margin-top: 30px;
+    margin-top: 37px;
     margin-left: 4%;
-    display: flex;
+    /* display: i; */
+    float: left;
     text-align: center;
     list-style-type: none;
 }
@@ -39,9 +40,9 @@ html {
 }
 
 .nav-list {
-    margin-top: 30px;
-
-    display: flex;
+    margin-top: 40px;
+    display: inline;
+    float: right;
     text-align: center;
     list-style-type: none;
     margin-right: 5%;
@@ -53,10 +54,12 @@ html {
 }
 .nav-list li a:hover {
     background-color: #10217d;
+    border-radius: 10px 100px / 120px;
     color: rgb(182, 173, 173);
 }
 
 .box {
+    margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 1rem;
